@@ -14,26 +14,16 @@ const argv = yargs(hideBin(process.argv))
       .usage('Transforms spec-extracted JSON to `aamtest` tests')
       .alias('v', 'verbose')
       .describe('v', 'verbose')
-      .help('h')
-      .alias('h', 'help')
       .argv;
-
 
 // mappings.json create in https://github.com/w3c/aria/pull/2744
 let JSONMapFile = path.resolve("./tools/mappings.json");
 
-// testable-html.json is data that was pulled from Joanie's tests, then, hand modified
+// testable-html.json is data that was pulled from Joanie's tests
 let HTMLMapFile = path.resolve("./tools/testable-html.json");
 
 let map = JSON.parse(fs.readFileSync(JSONMapFile));
 let htmlmap = JSON.parse(fs.readFileSync(HTMLMapFile));
-
-let origrole = ["blockquote.py", "button.py", "button_haspopup.py", "button_pressed.py"];
-let pr58654 = ["alert.py", "application.py", "article.py", "banner.py", "caption.py", "checkbox.py", "combobox.py", "complementary.py", "contentinfo.py", "definition.py", "deletion.py", "directory.py", "document.py", "emphasis.py", "feed.py", "figure.py", "generic.py", "group.py", "heading.py", "insertion.py", "list.py", "listitem.py", "main.py", "marquee.py", "menuitem.py", "menuitemcheckbox.py", "menuitemradio.py", "navigation.py", "note.py", "option.py", "paragraph.py", "radio.py", "radiogroup.py", "region.py", "row.py", "row_in_treegrid.py", "search.py", "sectionfooter.py", "sectionheader.py", "separator.py", "strong.py", "subscript.py", "superscript.py", "switch.py", "tabpanel.py", "term.py", "timer.py", "toolbar.py", "tooltip.py", "treeitem.py"];
-let origattr = ["aria_autocomplete_inline_list_both.py", "aria_braillelabel.py", "aria_errormessage.py"];
-
-let createdRoleTests = origrole.concat(pr58654);
-let createdAttrTests = origattr;
 
 function getCommentForItem(item) {
   if (item.type === 'not-mapped') {
@@ -94,14 +84,14 @@ function getAtspiScriptForItem(item, comment) {
   }
 
   else if (item.type === 'Relation') {
-    let relation = item.value; //item.value.replace(/^RELATION_/, '');
+    let relation = item.value;
     script.push("relations = atspi.get_relations_dictionary_helper(node)");
     script.push(`assert '${relation}' in relations`);
     script.push(`assert '<relationID>' in relations['${relation}']`);
   }
 
   else if (item.type === 'Reverse Relation') {
-    let relation = item.value; //.replace(/^RELATION_/, '');
+    let relation = item.value;
     script.push("reverse_node = atspi.find_node('<relationID>', session.url)");
     script.push("reverse_relations = atspi.get_relations_dictionary_helper(reverse_node)");
     script.push(`assert '${relation}' in reverse_relations`);
@@ -110,9 +100,6 @@ function getAtspiScriptForItem(item, comment) {
   }
 
   else if (item.type === 'Text Attribute') {
-    // Not sure if should use:
-    // - getInterface(Text).getAttribute(${attribute})
-    // - getInterface(Text).get_run_attributes
     let keyValue = item.value.split(":");
     script.push(`atspi.Text.getAttribute(${keyValue[0]}) == ${keyValue[1]}`);
 
@@ -207,8 +194,6 @@ function getComments(mappings) {
   return comments;
 }
 
-
-
 function renderAtspiTest(comments, script) {
   return `
 def test_atspi(atspi, session, inline):
@@ -237,7 +222,6 @@ return `
 # Intentionally no ${api} test. ${api} does not surface this node or attribute.
 `
 }
-
 
 function renderTest(script, idfrag, html) {
   return `# Testing: https://w3c.github.io/core-aam/#${idfrag}
@@ -291,9 +275,6 @@ Object.keys(map.roles).forEach(function (urlfrag) {
   }
 
   let newTestFile = urlfrag.replace(/^role-map-/, '').replaceAll('-', '_') + ".py";
-  if (createdRoleTests.includes(newTestFile)) {
-    return;
-  }
 
   // Cannot have a test file named code.py or math.py
   if (newTestFile == "code.py") {
@@ -317,8 +298,11 @@ Object.keys(map.roles).forEach(function (urlfrag) {
 
   const newTestFilePath = path.resolve(TEST_PATH_ROLE, newTestFile);
   fs.writeFileSync(newTestFilePath, test);
-  console.log(`------------------------- ${newTestFile}`);
-  console.log(test);
+
+  if (argv.v) {
+    console.log(`------------------------- ${newTestFile} -------------------------\n`);
+    console.log(test);
+  }
 })
 
 Object.keys(map.attributes).forEach(function (urlfrag) {
@@ -328,9 +312,6 @@ Object.keys(map.attributes).forEach(function (urlfrag) {
   }
 
   let newTestFile = urlfrag.replace(/(?<!^)(?=[A-Z])/g, '_').toLowerCase()  + ".py";
-  if (createdAttrTests.includes(newTestFile)) {
-    return;
-  }
 
   let test = createTest(urlfrag, map.attributes[urlfrag], urlfrag)
   if (!test) {
@@ -338,17 +319,11 @@ Object.keys(map.attributes).forEach(function (urlfrag) {
     return;
   }
 
-
   const newTestFilePath = path.resolve(TEST_PATH_ATTR, newTestFile);
   fs.writeFileSync(newTestFilePath, test);
-  console.log(`------------------------- ${newTestFile}`);
-  console.log(test);
+
+  if (argv.v) {
+    console.log(`------------------------- ${newTestFile} -------------------------\n`);
+    console.log(test);
+  }
 })
-
-
-// let manualTestsStillNeeded = Object.keys(htmlmap).filter(key => !htmlmap[key]["done"]);
-// for (let k of manualTestsStillNeeded) {
-//   console.log(k + "_manual.html");
-// }
-
-
