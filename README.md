@@ -1,0 +1,34 @@
+# Generating WPT `aamtest`
+
+## Overview of script and files
+
+`tools/json-to-aamtest-transformer.js`
+
+This script will generated WPT `aamtests` for the mapping role and attributes tables for Core-AAM:
+* https://w3c.github.io/aria/core-aam/#mapping_role_table
+* https://w3c.github.io/aria/core-aam/#mapping_state-property_table
+
+It uses two JSON files that have been parially made by scripts.
+
+`tools/mappings.json`
+
+This file was created directly from the Core-AAM specification mapping tables and basically is the mapping tables but with some structure (you can read about it's creation here but it's not important really: https://github.com/w3c/aria/pull/2744).
+
+`tools/json-to-aamtest-transformer.js` uses the specification statements in this file to generate test code.
+
+`tools/testable-html.json`
+
+This file contains the test html from Joanie's old manual tests. That test html is used in the new tests. I think I misplace the script that makes this file, but it doesn't matter, because I edited by hand a bunch after I generated.
+
+## How to create the tests
+
+All of the role tests that can be create have been created and checked in.
+
+To generate the attribute tests.
+
+```
+mkdir -p aamtests/attr
+mkdir -p aamtests/role
+node tools/json-to-aamtest-transformer.js
+```
+

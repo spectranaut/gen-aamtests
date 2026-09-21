@@ -1,0 +1,851 @@
+{
+  "alert": {
+    "html": "<div role='alert' id='test'>content</div>"
+  },
+  "alertdialog": {
+    "html": "<div role='alertdialog' id='test'>content</div>"
+  },
+  "application": {
+    "html": "<div role='application' id='test'>content</div>"
+  },
+  "ariaAtomicFalse": {
+    "html": "<div role='group' id='test' aria-atomic='false' aria-live='polite'> <div role='group' id='child'>content</div> </div>"
+  },
+  "ariaAtomicTrue": {
+    "html": "<div role='group' id='test' aria-atomic='true' aria-live='polite'> <div role='group' id='child'>content</div> </div>"
+  },
+  "aria-autocomplete_both": {
+    "html": "<input role='combobox' id='test' aria-autocomplete='both'>"
+  },
+  "ariaAutocompleteInlineListBoth": {
+    "html": "<input role='combobox' id='test' aria-autocomplete='inline'>",
+    "value": "inline"
+  },
+  "aria-autocomplete_list": {
+    "html": "<input role='combobox' id='test' aria-autocomplete='list'>"
+  },
+  "ariaBraillelabel": {
+    "html": "<button id='test' aria-braillelabel='foobar'> </button>",
+    "value": "foobar"
+  },
+  "ariaBrailleroledescription": {
+    "html": "<button id='test' aria-brailleroledescription='foobar'> </div>",
+    "value": "foobar"
+  },
+  "ariaBrailleroledescriptionUndefined": {
+    "html": "<button id='test' aria-brailleroledescription=''> </div>",
+    "atspi": ["assert 'brailleroledescription' not in atspi.Accessible.get_attributes(node)"]
+  },
+  "ariaBusyFalse": {
+    "html": "<div role='group' id='test' aria-busy='false'>content</div>"
+  },
+  "ariaBusyTrue": {
+    "html": "<div role='group' id='test' aria-busy='true'>content</div>"
+  },
+  "aria-busy-value-changes": {
+    "html": "<div role='group' id='test'>content</div>"
+  },
+  "ariaCheckedFalse": {
+    "html": "<div role='checkbox' id='test' aria-checked='false'>content</div>"
+  },
+  "aria-checked-false-on-menuitemradio": {
+    "html": "<div role='menu'> <div role='menuitemradio' id='test' aria-checked='false'>content</div> </div>"
+  },
+  "ariaCheckedMixed": {
+    "html": "<div role='checkbox' id='test' aria-checked='mixed'>content</div>"
+  },
+  "ariaCheckedTrue": {
+    "html": "<div role='checkbox' id='test' aria-checked='true'>content</div>"
+  },
+  "ariaCheckedUndefined": {
+    "html": "<div role='checkbox' id='test' aria-checked=''>content</div>",
+    "atspi": [
+      "assert 'STATE_CHECKABLE' not in atspi.get_state_list_helper(node)",
+      "assert 'STATE_CHECKED' in atspi.get_state_list_helper(node)"
+    ]
+  },
+  "aria-checked_true_on_menuitemradio": {
+    "html": "<div role='menu'> <div role='menuitemradio' id='test' aria-checked='true'>content</div> </div>"
+  },
+  "aria-checked_value_changes": {
+    "html": "<div role='checkbox' id='test'>content</div>"
+  },
+  "ariaColCount": {
+    "html": "<div role='table' id='test' aria-colcount='3'> <div role='row'> <div role='cell' id='cell'>content</div> </div> </div>",
+    "value": 3
+  },
+  "ariaColIndex": {
+    "html": "<div role='grid'> <div role='row'> <div role='cell' id='test' aria-colindex='3'>content</div> </div> </div>",
+    "value": 3
+  },
+  "ariaColIndexText": {
+    "html": "<div role='grid'> <div role='row'> <div role='cell' id='test' aria-colindex='3' aria-colindextext='foo'>content</div> </div> </div>",
+    "value": "foo"
+  },
+
+  "ariaColSpan": {
+    "html": "<div role='grid'> <div role='row'> <div role='cell' id='test' aria-colspan='3'>content</div> </div> </div>",
+    "value": 3
+  },
+  "ariaControls": {
+    "html": "<div role='combobox' id='test' aria-controls='list'> <div role='textbox'>content</div> </div> <div role='listbox' id='list'> <div role='option'>content</div> </div>",
+    "relationID": "list"
+  },
+  "aria-current_value_changes": {
+    "html": "<div role='list'> <div id='test' role='listitem'>1</li> <div role='listitem'>2</li> </div>"
+  },
+  "ariaCurrent": {
+    "html": "<div role='group' id='test' aria-current='step'>content</div>",
+    "value": "step"
+  },
+  "ariaCurrentUnrecognizedValue": {
+    "html": "<div role='group' id='test' aria-current='foo'>content</div>"
+  },
+  "ariaDescribedBy": {
+    "html": "<div role='group' id='test' aria-describedby='description'>content</div> <div id='description'>hello world</div>",
+    "relationID": "description",
+    "value": "hello world"
+  },
+  "ariaDescription": {
+    "html": "<div role='group' id='test' aria-description='hello world'>content</div>",
+    "value": "hello world"
+  },
+  "ariaDetails": {
+    "html": "<div role='group' id='test' aria-details='details'>content</div> <div id='details'>hello world</div>",
+    "relationID": "details"
+  },
+  "ariaDisabledFalse": {
+    "html": "<div role='button' id='test' aria-disabled='false'>content</div>"
+  },
+  "ariaDisabledTrue": {
+    "html": "<div role='group' id='test' aria-disabled='true'> <div role='checkbox' id='checkbox' tabindex='0'>content</div> </div>"
+  },
+  "aria-disabled_value_changes": {
+    "html": "<div role='checkbox' id='test'>content</div>"
+  },
+  "aria-dropeffect_copy": {
+    "html": "<div role='group' id='test' aria-dropeffect='copy'>content</div>"
+  },
+  "aria-dropeffect_execute": {
+    "html": "<div role='group' id='test' aria-dropeffect='execute'>content</div>"
+  },
+  "aria-dropeffect_link": {
+    "html": "<div role='group' id='test' aria-dropeffect='link'>content</div>"
+  },
+  "ariaDropeffectMoveLinkExecutePopup": {
+    "html": "<div role='group' id='test' aria-dropeffect='move'>content</div>",
+    "value": "move"
+  },
+  "aria-dropeffect_none": {
+    "html": "<div role='group' id='test' aria-dropeffect='none'>content</div>"
+  },
+  "aria-dropeffect_popup": {
+    "html": "<div role='group' id='test' aria-dropeffect='popup'>content</div>"
+  },
+  "aria-dropeffect_value_changes": {
+    "html": "<div role='group' id='test'>content</div>"
+  },
+  "aria-errormessage_aria-invalid_false": {
+    "html": "<div role='checkbox' id='test' aria-errormessage='error' aria-invalid='false'>content</div> <div id='error'>hello world</div>"
+  },
+  "ariaErrorMessage": {
+    "html": "<div role='checkbox' id='test' aria-errormessage='error' aria-invalid='true'>content</div> <div id='error'>hello world</div>",
+    "relationID": "error"
+  },
+  "ariaExpandedFalse": {
+    "html": "<div role='button' id='test' aria-expanded='false'>content</div>"
+  },
+  "ariaExpandedUndefined": {
+    "html": "<div role='button' id='test' aria-expanded=''>content</div>",
+    "atspi": [
+      "assert 'STATE_EXPANDABLE' in atspi.get_state_list_helper(node)",
+      "assert 'STATE_EXPANDED' in atspi.get_state_list_helper(node)"
+    ]
+  },
+  "aria-expanded_not_supported_on_alert": {
+    "html": "<div role='alert' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_not_supported_on_banner": {
+    "html": "<div role='banner' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_not_supported_on_dialog": {
+    "html": "<div role='dialog' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_not_supported_on_feed": {
+    "html": "<div role='feed' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_not_supported_on_form": {
+    "html": "<div role='form' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_not_supported_on_group": {
+    "html": "<div role='group' id='test' aria-expanded='true'>content</div>"
+  },
+  "ariaExpandedTrue": {
+    "html": "<div role='button' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_true_on_application": {
+    "html": "<div role='application' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_true_on_checkbox": {
+    "html": "<div role='checkbox' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_true_on_menuitem": {
+    "html": "<div role='menu'> <div role='menuitem' id='test' aria-expanded='true'>content</div> </div>"
+  },
+  "aria-expanded_true_on_menuitemcheckbox": {
+    "html": "<div role='menu'> <div role='menuitemcheckbox' id='test' aria-expanded='true'>content</div> </div>"
+  },
+  "aria-expanded_true_on_menuitemradio": {
+    "html": "<div role='menu'> <div role='menuitemradio' id='test' aria-expanded='true'>content</div> </div>"
+  },
+  "aria-expanded_true_on_switch": {
+    "html": "<div role='switch' id='test' aria-expanded='true'>content</div>"
+  },
+  "aria-expanded_value_changes": {
+    "html": "<div role='menu'> <div role='menuitem' id='test'>content <div role='menu'><div role='menuitem'>content</div></div> </div> </div> </div>then emit the platform accessibility events for changes to the value of aria-expanded."
+  },
+  "ariaFlowto": {
+    "html": "<div role='group' id='test' aria-flowto='next'>content</div> <div role='group' id='next'>content</div>",
+    "relationID": "next"
+  },
+  "ariaGrabbedFalse": {
+    "html": "<div role='group' id='test' aria-grabbed='false'>content</div>"
+  },
+  "ariaGrabbedTrue": {
+    "html": "<div role='group' id='test' aria-grabbed='true'>content</div>"
+  },
+  "ariaGrabbedUndefined": {
+    "html": "<div role='group' id='test' aria-grabbed=''>content</div>",
+    "atspi": [
+      "assert 'grabbed' not in atspi.Accessible.get_attributes(node)"
+    ]
+  },
+  "aria-grabbed_value_changes": {
+    "html": "<div role='group' id='test'>content</div>"
+  },
+  "ariaHaspopupDialog": {
+    "html": "<div role='button' id='test' aria-haspopup='dialog'>content</div>"
+  },
+  "ariaHaspopupFalse": {
+    "html": "<div role='button' id='test' aria-haspopup='false'>content</div>"
+  },
+  "ariaHaspopupGrid": {
+    "html": "<div role='button' id='test' aria-haspopup='grid'>content</div>"
+  },
+  "ariaHaspopupListbox": {
+    "html": "<div role='button' id='test' aria-haspopup='listbox'>content</div>"
+  },
+  "ariaHaspopupMenu": {
+    "html": "<div role='button' id='test' aria-haspopup='menu'>content</div>"
+  },
+  "ariaHaspopupTree": {
+    "html": "<div role='button' id='test' aria-haspopup='tree'>content</div>"
+  },
+  "ariaHaspopupTrue": {
+    "html": "<div role='button' id='test' aria-haspopup='true'>content</div>"
+  },
+  "ariaHiddenTrue": {
+    "html": "<div id='test' aria-hidden='true'>content</div>"
+  },
+  "ariaHiddenTrueElementExposed": {
+    "html": "<div id='test' aria-hidden='true' tabindex='0'>content</div>"
+  },
+  "ariaHiddenFalse": {
+    "html": "<div id='test' aria-hidden='false'>content</div>",
+    "atspi": ["assert 'hidden' not in atspi.Accessible.get_attributes(node)"]
+  },
+  "ariaInvalidFalse": {
+    "html": "<div role='textbox' id='test' aria-invalid='false'>content</div>"
+  },
+  "aria-invalid_grammar": {
+    "html": "<div role='textbox' id='test' aria-invalid='grammar'>content</div>"
+  },
+  "ariaInvalidSpellingGrammar": {
+    "html": "<div role='textbox' id='test' aria-invalid='spelling'>content</div>",
+    "value": "spelling"
+  },
+  "ariaInvalidTrue": {
+    "html": "<div role='textbox' id='test' aria-invalid='true'>content</div>"
+  },
+  "aria-invalid_value_changes": {
+    "html": "<div role='textbox' id='test'>content</div>"
+  },
+  "ariaInvalidUnrecognizedValue": {
+    "html": "<div role='textbox' id='test' aria-invalid='foo'>content</div>"
+  },
+  "ariaKeyshortcuts": {
+    "html": "<div role='group' id='test' aria-keyshortcuts='Shift+Space'>content</div>",
+    "value": "Shift+Space"
+  },
+  "ariaLabel": {
+    "html": "<div role='group' id='test' aria-label='hello world'>content</div>",
+    "value": "label"
+  },
+  "ariaLabelledBy": {
+    "html": "<div role='group' id='test' aria-labelledby='label'>content</div> <div id='label'>hello world</div>",
+    "relationID": "label",
+    "value": "hello world"
+  },
+  "ariaLevelHeading": {
+    "html": "<div role='heading' id='test' aria-level='2'>content</div>",
+    "value": 2
+  },
+  "ariaLevel": {
+    "html": "<div role='tree'> <div role='treeitem' id='test' aria-level='5'>content</div> </div>",
+    "value": 5
+  },
+  "ariaLiveAssertive": {
+    "html": "<div role='group' id='test' aria-live='assertive'> <div role='group' id='child'>content</div> </div>"
+  },
+  "ariaLiveOff": {
+    "html": "<div role='group' id='test' aria-live='off'> <div role='group' id='child'>content</div> </div>"
+  },
+  "ariaLivePolite": {
+    "html": "<div role='group' id='test' aria-live='polite'> <div role='group' id='child'>content</div> </div>"
+  },
+  "ariaModalFalse": {
+    "html": "<div role='group' id='group'>content</div> <div role='dialog' id='test' aria-modal='false'>content</div>"
+  },
+  "ariaModalTrue": {
+    "html": "<div role='group' id='group'>content</div> <div role='dialog' id='test' aria-modal='true'>content</div>"
+  },
+  "ariaMultilineFalse": {
+    "html": "<div role='textbox' id='test' aria-multiline='false'>content</div>"
+  },
+  "ariaMultilineTrue": {
+    "html": "<div role='textbox' id='test' aria-multiline='true'>content</div>"
+  },
+  "ariaMultiselectableFalse": {
+    "html": "<div role='grid' id='test' aria-multiselectable='false'> <div role='row'> <div role='cell'>content</div> </div> </div>"
+  },
+  "ariaMultiselectableTrue": {
+    "html": "<div role='grid' id='test' aria-multiselectable='true'> <div role='row'> <div role='cell'>content</div> </div> </div>"
+  },
+  "ariaOrientationHorizontal": {
+    "html": "<div role='scrollbar' id='test' aria-orientation='horizontal'>content</div>"
+  },
+  "ariaOrientationUndefined": {
+    "html": "<div role='radiogroup' id='test' aria-orientation='undefined'>content</div>"
+  },
+  "ariaOrientationVertical": {
+    "html": "<div role='scrollbar' id='test' aria-orientation='vertical'>content</div>"
+  },
+  "ariaOwns": {
+    "html": "<div role='group' id='test' aria-owns='owned'>content</div> <div role='group' id='owned'>content</div>",
+    "relationID": "owned"
+  },
+  "ariaPlaceholder": {
+    "html": "<div role='textbox' id='test' aria-placeholder='hello world'>content</div>",
+    "value": "hello world"
+  },
+  "ariaPosinset": {
+    "html": "<div role='list'> <div role='listitem' id='test' aria-posinset='2'>content</div> </div>",
+    "value": 2
+  },
+  "aria-posinset_and_aria-setsize_on_treegrid_row": {
+    "html": "<div role='treegrid'> <div role='row' id='test' aria-posinset='2' aria-setsize='100'> <div role='cell'>content</div> </div> </div>"
+  },
+  "ariaPressedFalse": {
+    "html": "<div role='button' id='test' aria-pressed='false'>content</div>"
+  },
+  "ariaPressedMixed": {
+    "html": "<div role='button' id='test' aria-pressed='mixed'>content</div>"
+  },
+  "ariaPressedTrue": {
+    "html": "<div role='button' id='test' aria-pressed='true'>content</div>"
+  },
+  "aria-pressed_value_changes": {
+    "html": "<div role='button' id='test'>content</div>"
+  },
+  "ariaReadonlyFalse": {
+    "html": "<div role='searchbox' id='test' aria-readonly='false'>content</div>"
+  },
+  "ariaReadonlyUnspecifiedOnGridcell": {
+    "html": "<div role='grid' aria-readonly='true'> <div role='row'> <div role='gridcell' id='test'>content</div> </div> </div>",
+    "atspi": ["assert 'STATE_READ_ONLY' in atspi.get_state_list_helper(node)", "assert 'STATE_EDITABLE' not in atspi.get_state_list_helper(node)"]
+  },
+  "ariaReadonlyTrue": {
+    "html": "<div role='checkbox' id='test' aria-readonly='true'>content</div>"
+  },
+  "aria-readonly_true_on_radiogroup": {
+    "html": "<div role='radiogroup' id='test' aria-readonly='true'> <div role='radio' id='radio'>content</div> </div>"
+  },
+  "aria-readonly_true_on_textbox": {
+    "html": "<div role='textbox' id='test' aria-readonly='true'>content</div>"
+  },
+  "aria-readonly_value_changes": {
+    "html": "<div role='textbox' id='test'>content</div>"
+  },
+  "ariaRelevant": {
+    "html": "<div role='group' id='test' aria-relevant='additions' aria-live='polite'> <div role='group' id='child'>content</div> </div>",
+    "value": "additions"
+  },
+  "ariaRequiredTrue": {
+    "html": "<div role='combobox' id='test' aria-required='true'> <div role='textbox'>content</div> </div>"
+  },
+  "aria-required_true_on_checkbox": {
+    "html": "<div role='checkbox' id='test' aria-required='true'>checkbox</div>"
+  },
+  "aria-required_value_changes": {
+    "html": "<div role='textbox' id='test'>content</div>"
+  },
+  "ariaRoleDescription": {
+    "html": "<div role='group' id='test' aria-roledescription='hello world'>content</div>",
+    "value": "hello world"
+  },
+  "ariaRoleDescriptionEmptyString": {
+    "html": "<div role='group' id='test' aria-roledescription=' '>content</div>",
+    "atspi": ["assert 'roledescription' not in atspi.Accessible.get_attributes(node)"]
+  },
+  "ariaRowCount": {
+    "html": "<div role='table' id='test' aria-rowcount='3'> <div role='row' id='row'> <div role='cell'>content</div> </div> </div>",
+    "value": 3
+  },
+  "ariaRowIndex": {
+    "html": "<div role='grid'> <div role='row' id='row'> <div role='cell' id='test' aria-rowindex='3'>content</div> </div> </div>",
+    "value": 3
+  },
+  "ariaRowIndexText": {
+    "html": "<div role='grid'> <div role='row' id='row'> <div role='cell' id='test' aria-rowindextext='foo'>content</div> </div> </div>",
+    "value": "foo"
+  },
+  "ariaRowSpan": {
+    "html": "<div role='grid'> <div role='row'> <div role='cell' id='test' aria-rowspan='2'>content</div> </div> </div>",
+    "value": 2
+  },
+  "ariaSelectedFalse": {
+    "html": "<div role='grid'> <div role='row'> <div role='gridcell' id='test' aria-selected='false'>content</div> </div> </div>"
+  },
+  "ariaSelectedUndefined": {
+    "html": "<div role='grid'> <div role='row'> <div role='gridcell' id='test' aria-selected=''>content</div> </div> </div>",
+    "atspi": [
+      "assert 'STATE_SELECTABLE' in atspi.get_state_list_helper(node)",
+      "assert 'STATE_SELECTED' in atspi.get_state_list_helper(node)"
+    ]
+  },
+  "ariaSelectedTrue": {
+    "html": "<div role='grid'> <div role='row'> <div role='gridcell' id='test' aria-selected='true'>content</div> </div> </div>"
+  },
+  "aria-setsize_-1": {
+    "html": "<div role='list'> <div role='listitem' id='test' aria-setsize='-1'>content</div> <div role='listitem' aria-setsize='-1'>content</div> </div>"
+  },
+  "ariaSetsize": {
+    "html": "<div role='list'> <div role='listitem' id='test' aria-setsize='3'>content</div> <div role='listitem' aria-setsize='3'>content</div> </div>",
+    "value": 3
+  },
+  "ariaSortAscending": {
+    "html": "<div role='grid'> <div role='row'> <div role='columnheader' id='test' aria-sort='ascending'>content</div> </div> </div>"
+  },
+  "ariaSortDescending": {
+    "html": "<div role='grid'> <div role='row'> <div role='columnheader' id='test' aria-sort='descending'>content</div> </div> </div>"
+  },
+  "ariaSortNone": {
+    "html": "<div role='grid'> <div role='row'> <div role='columnheader' id='test' aria-sort='none'>content</div> </div> </div>"
+  },
+  "ariaSortOther": {
+    "html": "<div role='grid'> <div role='row'> <div role='columnheader' id='test' aria-sort='other'>content</div> </div> </div>"
+  },
+  "ariaValueMax": {
+    "html": "<div role='scrollbar' id='test' aria-valuemax='10'>content</div>",
+    "value": 10
+  },
+  "ariaValueMin": {
+    "html": "<div role='scrollbar' id='test' aria-valuemin='2'>content</div>",
+    "value": 2
+  },
+  "ariaValueNow": {
+    "html": "<div role='scrollbar' id='test' aria-valuenow='5'>content</div>",
+    "value": 5
+  },
+  "aria-valuenow_value_changes": {
+    "html": "<div role='slider' id='test'>content</div>"
+  },
+  "ariaValueText": {
+    "html": "<div role='slider' id='test' aria-valuetext='hello world'>content</div>",
+    "value": "hello world"
+  },
+  "aria-valuetext_on_spinbutton": {
+    "html": "<div role='spinbutton' id='test' aria-valuetext='awesome'>10</div>"
+  },
+  "aria-valuetext_value_changes": {
+    "html": "<div role='slider' id='test'>content</div>"
+  },
+  "article": {
+    "html": "<div role='article' id='test'>content</div>"
+  },
+  "banner": {
+    "html": "<div role='banner' id='test'>content</div>"
+  },
+  "blockquote": {
+    "html": "<div role='blockquote' id='test'>content</div>"
+  },
+  "button_with_aria-haspopup_dialog": {
+    "html": "<div role='button' id='test' aria-haspopup='dialog'>content</div>"
+  },
+  "button": {
+    "html": "<div role='button' id='test'>content</div>"
+  },
+  "button-haspopup": {
+    "html": "<div role='button' id='test' aria-haspopup='true'>content</div>"
+  },
+  "button_with_default_values_for_aria-pressed_and_aria-haspopup": {
+    "html": "<div role='button' id='test'>content</div>"
+  },
+  "button-pressed": {
+    "html": "<div role='button' id='test' aria-pressed='true'>content</div>"
+  },
+  "caption": {
+    "html": "<div role='caption' id='test'>content</div>"
+  },
+  "cell": {
+    "html": "<div role='table'> <div role='row'> <div role='cell' id='test'>content</div> </div> </div>"
+  },
+  "checkbox": {
+    "html": "<div role='checkbox' id='test'>content</div>"
+  },
+  "code": {
+    "html": "<div role='code' id='test'>content</div>"
+  },
+  "columnheader": {
+    "html": "<div role='grid'> <div role='row'> <div role='columnheader' id='test'>content</div> </div> </div>"
+  },
+  "combobox": {
+    "html": "<div role='combobox' aria-expanded='false' id='test'> <div role='textbox'>content</div> </div>"
+  },
+  "combobox-value-calculation": {
+    "html": "<div id='combo1-label'>Choose a fruit, with text content</div> <div aria-controls='listbox1' id='test' aria-expanded='false' aria-haspopup='listbox' aria-labelledby='combo1-label' role='combobox' tabindex='0'>Apple</div> <div role='listbox' id='listbox1'> <div role='option' id='combo1-0' aria-selected='true'>Apple</div> <div role='option' id='combo1-1'>Banana</div> <div role='option' id='combo1-2'>Cherry</div> </div>"
+  },
+  "comment": {
+    "html": "<div role='comment' id='test'>content</div>"
+  },
+  "complementary": {
+    "html": "<div role='complementary' id='test'>content</div>"
+  },
+  "contentinfo": {
+    "html": "<div role='contentinfo' id='test'>content</div>"
+  },
+  "definition": {
+    "html": "<div role='definition' id='test'>content</div>"
+  },
+  "deletion": {
+    "html": "<div role='deletion' id='test'>content</div>"
+  },
+  "dialog": {
+    "html": "<div role='dialog' id='test'>content</div>"
+  },
+  "directory": {
+    "html": "<div role='directory' id='test'>content</div>"
+  },
+  "document": {
+    "html": "<div role='document' id='test'>content</div>"
+  },
+  "emphasis": {
+    "html": "<div role='emphasis' id='test'>content</div>"
+  },
+  "exclude_element_hidden_with_css_display_none": {
+    "html": "<div role='button' style='display:none;'>content</div>"
+  },
+  "exclude_element_hidden_with_css_visibility_hidden": {
+    "html": "<div role='button' style='visibility:hidden;'>content</div>"
+  },
+  "exclude_element_hidden_with_html5_hidden": {
+    "html": "<div role='button' hidden>content</div>"
+  },
+  "feed": {
+    "html": "<div role='feed' id='test'> <div role='article'>content</div> </div>"
+  },
+  "figure": {
+    "html": "<div role='figure' id='test'>content</div>"
+  },
+  "form": {
+    "html": "<div role='form' id='test' aria-labelled='the name of the form'>content</div>"
+  },
+  "form-nameless": {
+    "html": "<div role='form' id='test'>content</div>"
+  },
+  "generic": {
+    "html": "<p role='generic' id='test'>content</p>"
+  },
+  "generic_roledescription_prohibited": {
+    "html": "<div role='generic' id='test' aria-roledescription='foo'>content</div>"
+  },
+  "grid-level-not-supported": {
+    "html": "<div role='grid' id='test' aria-level='2'> <div role='row'> <div role='gridcell'>content</div> </div> </div>"
+  },
+  "grid": {
+    "html": "<div role='grid' id='test'> <div role='row' id='headerrow'> <div role='columnheader' id='colheader1'>content</div> <div role='columnheader' id='colheader2'>content</div> </div> <div role='row'> <div role='rowheader' id='rowheader1'>content</div> <div role='gridcell'>content</div> </div> <div role='row'> <div role='rowheader' id='rowheader2'>content</div> <div role='gridcell'>content</div> </div> </div>"
+  },
+  "gridcell": {
+    "html": "<div role='grid'> <div role='row'> <div role='gridcell' id='test'>content</div> </div> </div>"
+  },
+  "group": {
+    "html": "<div role='group' id='test'>content</div>"
+  },
+  "group_as_child_of_listbox": {
+    "html": "<div role='listbox'> <div role='group' id='test'> <div role='option'>content 1</div> <div role='option'>content 2</div> </div> </div>"
+  },
+  "heading": {
+    "html": "<div role='heading' id='test'>content</div>"
+  },
+  "heading-no-level": {
+    "html": "<div role='heading' id='test'>content</div>"
+  },
+  "image": {
+    "html": "<div role='image' id='test'>content</div>"
+  },
+  "img": {
+    "html": "<div role='img' id='test'>content</div>"
+  },
+  "include_element_referenced_by_global_aria-controls": {
+    "html": "<div role='group' aria-controls='test'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_referenced_by_global_aria-describedby": {
+    "html": "<div role='group' aria-describedby='test'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_referenced_by_global_aria-details": {
+    "html": "<div role='group' aria-details='test'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_referenced_by_global_aria-errormessage": {
+    "html": "<div role='checkbox' aria-errormessage='test' aria-invalid='true'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_referenced_by_global_aria-flowto": {
+    "html": "<div role='group' aria-flowto='test'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_referenced_by_global_aria-labelledby": {
+    "html": "<div role='group' aria-labelledby='test'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_referenced_by_global_aria-owns": {
+    "html": "<div role='group' aria-owns='test'>content</div> <div id='test'>hello world</div>"
+  },
+  "include_element_that_is_focusable": {
+    "html": "<div id='test' tabindex='0'>content</div>"
+  },
+  "include_element_with_id_inside_element_with_aria-activedescendant": {
+    "html": "<div role='group' aria-activedescendant='child' tabindex='0'> <div id='child'>content</div> <div id='test'>content</div> </div>"
+  },
+  "insertion": {
+    "html": "<div role='insertion' id='test'>content</div>"
+  },
+  "invalid_role_not_mapped": {
+    "html": "<p id='test' role='foobar'>content</p>"
+  },
+  "link": {
+    "html": "<div role='link' id='test'>content</div>"
+  },
+  "list": {
+    "html": "<div role='list' id='test'> <div role='listitem'>content</div> </div>"
+  },
+  "listbox": {
+    "html": "<div role='listbox' id='test'> <div role='option'>content</div> </div>"
+  },
+  "listbox-in-combobox": {
+    "html": "<div role='combobox'> <div role='textbox'>content</div> <div role='listbox' id='test'> <div role='option'>content</div> </div> </div>"
+  },
+  "listitem": {
+    "html": "<div role='list'> <div role='listitem' id='test'>content</div> </div>"
+  },
+  "log": {
+    "html": "<div role='log' id='test'>content</div>"
+  },
+  "main": {
+    "html": "<div role='main' id='test'>content</div>"
+  },
+  "mark": {
+    "html": "<div role='mark' id='test'>content</div>"
+  },
+  "marquee": {
+    "html": "<div role='marquee' id='test'>content</div>"
+  },
+  "math": {
+    "html": "<div role='math' id='test'>content</div>"
+  },
+  "math_role_children_are_not_presentational": {
+    "html": "<div role='math'><input id='test'/> + 1 = 4</div>"
+  },
+  "menu": {
+    "html": "<div role='menu' id='test'> <div role='menuitemradio'>content</div> </div>"
+  },
+  "menu_child_of_menu_item": {
+    "html": "<div role='menu'> <div role='menuitem'> <div role='menu' id='test'> <div role='menuitemradio'>content</div> </div> <div role='menuitem'>content</div> </div>"
+  },
+  "menubar": {
+    "html": "<div role='menubar' id='test'> <div role='menuitemradio'>content</div> </div>"
+  },
+  "menuitem": {
+    "html": "<div role='menu'> <div role='menuitem' id='test'>content</div> </div>"
+  },
+  "menuitemcheckbox": {
+    "html": "<div role='menu'> <div role='menuitemcheckbox' id='test'>content</div> </div>"
+  },
+  "menuitemcheckbox_child_of_group": {
+    "html": "<div role='menu'> <div role='group'> <div role='menuitemcheckbox' id='test'>content 1</div> </div> <div role='menuitem'>content 2</div> </div>"
+  },
+  "menuitemradio": {
+    "html": "<div role='menu'> <div role='menuitemradio' id='test'>content</div> </div>"
+  },
+  "meter": {
+    "html": "<div role='meter' aria-valuenow='20' id='test'>content</div>"
+  },
+  "navigation": {
+    "html": "<div role='navigation' id='test'>content</div>"
+  },
+  "none": {
+    "html": "<div role='none' id='test'>content</div>"
+  },
+  "none_used_on_element_that_is_focused_or_fires_event": {
+    "html": "<div id='test' role='none' tabindex='0'>content</div>"
+  },
+  "none_used_on_table_element_with_td_children": {
+    "html": "<table role='none'> <tr><td id='test' aria-label='name to force inclusion'>row 1, col 1</td><td>row 1, col 2</td></tr> </table>"
+  },
+  "none_used_on_ul_element_with_li_children": {
+    "html": "<ul role='none'> <li id='test' tabindex='0' aria-label='name to force inclusion'>item 1</li> <li>item 2</li> </ul>"
+  },
+  "note": {
+    "html": "<div role='note' id='test'>content</div>"
+  },
+  "option-in-combobox": {
+    "html": "<div role='combobox'> <div role='textbox'>content</div> <div role='listbox'> <div role='option' id='test'>content</div> </div> </div>"
+  },
+  "option": {
+    "html": "<div role='listbox'> <div role='option' id='test'>content</div> </div>"
+  },
+  "paragraph": {
+    "html": "<div role='paragraph' id='test'>content</div>"
+  },
+  "presentation": {
+    "html": "<div role='presentation' id='test'>content</div>"
+  },
+  "presentation_used_on_element_that_is_focused_or_fires_event": {
+    "html": "<div id='test' role='presentation' tabindex='0'>content</div>"
+  },
+  "presentation_used_on_table_element_with_td_children": {
+    "html": "<table role='presentation'> <tr><td id='test' aria-label='name to force inclusion'>row 1, col 1</td><td>row 1, col 2</td></tr> </table>"
+  },
+  "presentation_used_on_ul_element_with_li_children": {
+    "html": "<ul role='presentation'> <li id='test' tabindex='0' aria-label='name to force inclusion'>item 1</li> <li>item 2</li> </ul>"
+  },
+  "progressbar": {
+    "html": "<div role='progressbar' aria-valuenow='20' id='test'>content</div>"
+  },
+  "progressbar-no-min-or-max": {
+    "html": "<div role='progressbar' aria-valuenow='20' id='test'>content</div>"
+  },
+  "radio": {
+    "html": "<div role='radio' id='test'>content</div>"
+  },
+  "radiogroup": {
+    "html": "<div role='radiogroup' id='test'> <div role='radio'>content</div> </div>"
+  },
+  "region": {
+    "html": "<div role='region' aria-label='name for region' id='test'>content</div>"
+  },
+  "region-nameless": {
+    "html": "<div role='region' id='test'>content</div>"
+  },
+  "row-in-treegrid": {
+    "html": "<div role='treegrid'> <div role='row' id='test'> <div role='gridcell'>content</div> </div> </div>"
+  },
+  "row": {
+    "html": "<div role='grid'> <div role='row' id='test'> <div role='gridcell'>content</div> </div> </div>"
+  },
+  "rowgroup": {
+    "html": "<div role='grid'> <div role='rowgroup' id='test'> <div role='row'> <div role='cell'>content</div> </div> <div role='row'> <div role='cell'>content</div> </div> </div> </div>"
+  },
+  "rowgroup-no-name-from-contents": {
+    "html": "<div role='grid'> <div role='rowgroup' id='test'> <div role='row'> <div role='cell'>content</div> </div> <div role='row'> <div role='cell'>content</div> </div> </div> </div>"
+  },
+  "rowheader": {
+    "html": "<div role='grid'> <div role='row'> <div role='rowheader' id='test'>content</div> </div> </div>"
+  },
+  "scrollbar": {
+    "html": "<div role='scrollbar' id='test'>content</div>"
+  },
+  "search": {
+    "html": "<div role='search' id='test'>content</div>"
+  },
+  "searchbox": {
+    "html": "<div role='searchbox' contenteditable id='test'>content</div>"
+  },
+  "sectionfooter": {
+    "html": "<div role='sectionfooter' id='test'>content</div>"
+  },
+  "sectionheader": {
+    "html": "<div role='sectionheader' id='test'>content</div>"
+  },
+  "separator-focusable": {
+    "html": "<div role='separator' tabindex='0' id='test'>content</div>"
+  },
+  "separator": {
+    "html": "<div role='separator' id='test'>content</div>"
+  },
+  "slider": {
+    "html": "<div role='slider' id='test'>content</div>"
+  },
+  "spinbutton": {
+    "html": "<div role='spinbutton' id='test'>10</div>"
+  },
+  "status": {
+    "html": "<div role='status' id='test'>content</div>"
+  },
+  "strong": {
+    "html": "<div role='strong' id='test'>content</div>"
+  },
+  "subscript": {
+    "html": "<div role='subscript' id='test'>content</div>"
+  },
+  "suggestion": {
+    "html": "<div role='suggestion' id='test'>content</div>"
+  },
+  "superscript": {
+    "html": "<div role='superscript' id='test'>content</div>"
+  },
+  "switch": {
+    "html": "<div role='switch' id='test'>content</div>"
+  },
+  "tab": {
+    "html": "<div role='tablist'> <div role='tab' id='test'>content</div> </div>"
+  },
+  "table": {
+    "html": "<div role='table' id='test'> <div role='row' id='headerrow'> <div role='columnheader' id='colheader1'>content</div> <div role='columnheader' id='colheader2'>content</div> </div> <div role='row'> <div role='rowheader' id='rowheader1'>content</div> <div role='cell'>content</div> </div> <div role='row'> <div role='rowheader' id='rowheader2'>content</div> <div role='cell'>content</div> </div> </div>"
+  },
+  "tablist-level-not-supported": {
+    "html": "<div role='tablist' id='test' aria-level='2'> <div role='tab'>content</div> </div>"
+  },
+  "tablist": {
+    "html": "<div role='tablist' id='test'> <div role='tab'>content</div> </div>"
+  },
+  "tabpanel": {
+    "html": "<div role='tabpanel' id='test'>content</div>"
+  },
+  "term": {
+    "html": "<div role='term' id='test'>content</div>"
+  },
+  "textbox": {
+    "html": "<div role='textbox' contenteditable id='test'>content</div>"
+  },
+  "textbox-multiline": {
+    "html": "<div role='textbox' contenteditable aria-multiline='true' id='test'>content</div>"
+  },
+  "time": {
+    "html": "<div role='time' id='test'>content</div>"
+  },
+  "timer": {
+    "html": "<div role='timer' id='test'>content</div>"
+  },
+  "toolbar": {
+    "html": "<div role='toolbar' id='test'>content</div>"
+  },
+  "tooltip": {
+    "html": "<div role='tooltip' id='test'>content</div>"
+  },
+  "tree": {
+    "html": "<div role='tree' id='test'> <div role='treeitem'>content</div> </div>"
+  },
+  "treegrid": {
+    "html": "<div role='treegrid' id='test'> <div role='row'> <div role='gridcell'>content</div> </div> </div>"
+  },
+  "treeitem": {
+    "html": "<div role='tree'> <div role='treeitem' id='test'>content</div> </div>"
+  }
+}
